@@ -1,10 +1,18 @@
-export const delayMillis = (delayMs: number): Promise<void> => new Promise(resolve => setTimeout(resolve, delayMs));
+import { shopifyPullProducts } from "./shopify";
 
-export const greet = (name: string): string => `Hello ${name}`
 
-export const foo = async (): Promise<boolean> => {
-  console.log(greet('World'))
-  await delayMillis(1000)
-  console.log('done')
-  return true
+
+const main = async () => {
+
+  const pullProducts = await shopifyPullProducts()
+
+  console.log(pullProducts);
+
+  // const contentPosts = await pullFacebookPosts()
+  // const chat = await generateChat(contentPosts)
+
+  // console.log(chat.choices[0].message.content);
+
 }
+
+export { main };
